@@ -10,9 +10,12 @@ function EventSummary(props){
 
   return (
     <div>
-      <p>Event: {props.dataSet.startDate} through {props.dataSet.endDate}</p>
-      <p>Elapsed: {props.dataSet.elapsed} of {props.dataSet.duration} days ({props.dataSet.timePct}%)</p>
-      <p>Distance {props.dataSet.miles} of {props.dataSet.goal} Miles ({props.dataSet.milePct}%)</p>
+      Event:
+      <ul>
+      <li>Date: {props.dataSet.startDate} through {props.dataSet.endDate}</li>
+      <li>Elapsed: {props.dataSet.elapsed} of {props.dataSet.duration} days ({props.dataSet.timePct}%)</li>
+      <li>Distance {props.dataSet.miles} of {props.dataSet.goal} Miles ({props.dataSet.milePct}%)</li>
+      </ul>
     </div>
   );  
 }
@@ -36,7 +39,8 @@ function CompleteSummary(props) {
 
   return (
     <div>
-      <ul>To Complete:
+      To Complete:
+      <ul>
        <li>Days: {props.dataSet.remainingDays} Remaining</li>
        <li>Miles: {props.dataSet.remainingMiles} Remaining</li>
        <li>Rate: {props.dataSet.completeRate} miles per day</li>
