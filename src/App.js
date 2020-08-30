@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Results from './results.js'
+import Activities from './activities.js'
 import qs from 'query-string';
 import './App.css'
 
@@ -46,7 +47,6 @@ class RunnerForm extends React.Component {
   }
   
   render() {
-//    alert("app.render(" + JSON.stringify(this.state.dataSet) + ")");
     return (
       <div className="App">
         <div className="Form">
@@ -60,6 +60,8 @@ class RunnerForm extends React.Component {
         </div>
         <hr className='divider'/ >
         <Results dataSet={this.state.dataSet}/>
+        <hr className='divider'/ >
+        <Activities dataSet={this.state.dataSet}/>
       </div>
     );
   }
