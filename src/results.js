@@ -27,7 +27,10 @@ function PositionSummary(props) {
 
   return (
     <div className={props.dataSet.clName}>
-      {props.dataSet.clName}:  {props.dataSet.mileTogo} miles ({props.dataSet.delta}%)
+      {props.dataSet.clName} by {props.dataSet.delta}%:
+       <li>{props.dataSet.mileTogo} miles</li>
+       <li>{props.dataSet.daysTogo} days</li>
+       Estimated completion: {props.dataSet.completeDate}
     </div>
   );
 }
@@ -91,15 +94,19 @@ function Results(props){
 
   var clName = 'Ahead';
   var delta = milePct - timePct;
+  const deltaDays = (delta/(100*(1/duration)));
   if( timePct > milePct ){
     clName= 'Behind';
     delta = timePct - milePct;
   }
-//    my $miles = $goal * ($delta / 100);
+  var complete = endDate.subtract(deltaDays.toFixed(0), 'Days').format('yyyy-MM-DD');
+
   const position = {
     clName: clName,
     delta: (delta).toFixed(2),
     mileTogo: (goal * (delta/100)).toFixed(2),
+    daysTogo: Math.abs(deltaDays).toFixed(2),
+    completeDate: complete,
   };
 
   const completion = {
